@@ -60,7 +60,7 @@ export const resolvers = {
         },
 
         deleteAirport: async(_:unknown, args: getQuery, ctx: Context): Promise<boolean> => {
-            const { deletedCount } = await ctx.AirportCollection.findOneAndDelete({_id: new ObjectId(args.id)})
+            const { deletedCount } = await ctx.AirportCollection.deleteOne({_id: new ObjectId(args.id)})
             return deletedCount === 1
         },
 
